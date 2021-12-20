@@ -28,8 +28,8 @@ ProductTag.init(
       references: {
         name: 'tag',
         type: 'id',
-      }
-    }
+      },
+    },
   },
   {
     sequelize,

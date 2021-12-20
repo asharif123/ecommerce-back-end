@@ -1,7 +1,7 @@
 const express = require('express');
 //grab all the routes, part of modularizing routes
 const routes = require('./routes');
-const sequelize = require('sequelize');
+const sequelize = require('./config/connection');
 
 const path = require('path');
 
@@ -31,4 +31,5 @@ sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));
   });
   
+
   

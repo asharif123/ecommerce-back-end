@@ -46,11 +46,9 @@ Product.init(
     //referencing the 'category' model, foreign key relates category to many products
       references: {
         model: 'category',
-        key: 'id',
-      }
-    }
-
-
+        key: 'id'
+      },
+    },
   },
   {
     sequelize,
