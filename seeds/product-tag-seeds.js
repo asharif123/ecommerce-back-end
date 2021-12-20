@@ -1,5 +1,5 @@
 const { ProductTag } = require('../models');
-
+//a product can have many tags and a tag can have many products
 const productTagData = [
   {
     product_id: 1,
