@@ -26,10 +26,9 @@ app.get('/', (req, res) => {
 });
 
 // sync sequelize models to the database, then turn on the server
-
-sequelize.sync({force: false}.then(() => {
-    app.listen(PORT, () => {
-        console.log(`App listening on port ${PORT}!`);
-      }); 
-}))
+//force: false to ensure we dont recreate database everytime we run nodemon server
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log('Now listening'));
+  });
+  
   

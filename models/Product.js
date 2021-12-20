@@ -10,6 +10,45 @@ class Product extends Model {}
 Product.init(
   {
     // define columns
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+
+    product_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    price: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+      validate: {
+        isNumeric: true,
+      },
+    },
+
+    stock: {
+      type: DataTypes.INTEGER,
+      defaultValue: 10,
+      validate: {
+        isNumeric: true,
+      },
+    },
+
+    //category_id used to relate each category to product
+    category_id: {
+      type: DataTypes.INTEGER,
+    //referencing the 'category' model, foreign key relates category to many products
+      references: {
+        model: 'category',
+        key: 'id',
+      }
+    }
+
+
   },
   {
     sequelize,
