@@ -22,7 +22,7 @@ ProductTag.init(
         key: 'id',
       }
     },
-
+//a tag can have many tag ids
     tag_id: {
       type: DataTypes.INTEGER,
       references: {
