@@ -14,7 +14,7 @@ ProductTag.init(
       primaryKey: true,
       autoIncrement: true,
     },
-//a product can have many product ids
+//a product can have many product tags
     product_id: {
       type: DataTypes.INTEGER,
       references: {
