@@ -7,6 +7,7 @@ const { Category, Product } = require('../../models');
 router.get('/', (req, res) => {
   // find all categories
   // be sure to include its associated Products
+  
 });
 
 router.get('/:id', (req, res) => {
@@ -16,6 +17,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new category
+
 });
 
 router.put('/:id', (req, res) => {
