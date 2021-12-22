@@ -35,10 +35,10 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  // create a new tag
+  // create a new tag, if there are productIds, take each id and map it to the created tag
   try {
-    const createTagData = await Tag.create(req.params.body);
-    console.log("DATA", req.params.body)
+    const createTagData = await Tag.create(req.body);
+    
     res.status(200).json(createTagData);
 
   }
@@ -49,6 +49,20 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
+    Tag.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    })
+    .then((tag) => 
+      res.status(200).json({message: "Tag has been updated!"})
+    ) 
+    .catch((err) => 
+      res.status(400).json({message: "Tag does not exist!"})
+    )
+ 
+
+  
 });
 
 router.delete('/:id', async (req, res) => {
