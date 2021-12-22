@@ -5,6 +5,7 @@ const sequelize = require('../config/connection');
 class ProductTag extends Model {}
 
 //ProductTag references each product and individual tag
+//product tag: connection of product with specific tag
 ProductTag.init(
   {
     // define columns
@@ -14,6 +15,8 @@ ProductTag.init(
       primaryKey: true,
       autoIncrement: true,
     },
+
+    //part of many to many relationship
 //a product can have many product tags
     product_id: {
       type: DataTypes.INTEGER,

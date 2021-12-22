@@ -41,6 +41,7 @@ Product.init(
     },
 
     //category_id used to relate each category to product
+    //a category can have many products
     category_id: {
       type: DataTypes.INTEGER,
     //referencing the 'category' model, foreign key relates category to many products

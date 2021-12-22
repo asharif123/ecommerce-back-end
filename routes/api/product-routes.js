@@ -49,16 +49,22 @@ router.post('/', (req, res) => {
   */
 
   //create the product database
+  //if tag ids exist, take each tag id and assign to product being created
   Product.create(req.body)
+  //using .then to grab the created product from database
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
+     
+      //for each of those tags, combine with product id
       if (req.body.tagIds.length) {
+      //take each tag id and map it to the specific product
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
           return {
             product_id: product.id,
             tag_id,
           };
         });
+      //bulkCreate - create many tags using bulkCreate and assign to ProductTag
         return ProductTag.bulkCreate(productTagIdArr);
       }
       // if no product tags, just respond
@@ -71,38 +77,44 @@ router.post('/', (req, res) => {
     });
 });
 
-// update product
+// update product, take all the tags from a product, remove old tags and replace with new ones user added
 router.put('/:id', (req, res) => {
-  // update product data
+  // find specific product to update
   Product.update(req.body, {
     where: {
       id: req.params.id,
     },
   })
     .then((product) => {
-      // find all associated tags from ProductTag
+      // find all product tag from ProductTag according to its product id
+      //note: product tags are associated with each product
       return ProductTag.findAll({ where: { product_id: req.params.id } });
     })
     .then((productTags) => {
-      // get list of current tag_ids
+      // get list of current tag_ids from specific product
       const productTagIds = productTags.map(({ tag_id }) => tag_id);
-      // create filtered list of new tag_ids
+      // create filtered list of new tag_ids, make array of just the ids
       const newProductTags = req.body.tagIds
+    //only get me tag ids from data send not in the database
+    //first filter only tagids that are not in the newProductTags (ones user inputted) and not in the old productTagsIds
         .filter((tag_id) => !productTagIds.includes(tag_id))
+    //then map each tag not in the original productTagIds to a new array associated with specific product
         .map((tag_id) => {
           return {
             product_id: req.params.id,
             tag_id,
           };
         });
-      // figure out which ones to remove
+      // figure out which ones to remove, get me all tags that I have and don't include ones that are not in database
       const productTagsToRemove = productTags
         .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
         .map(({ id }) => id);
 
       // run both actions
       return Promise.all([
+      //destroy items that are in list of tags to remove
         ProductTag.destroy({ where: { id: productTagsToRemove } }),
+      //add new tags that we are updating sent to me
         ProductTag.bulkCreate(newProductTags),
       ]);
     })

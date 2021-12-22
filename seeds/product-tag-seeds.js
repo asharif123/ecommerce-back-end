@@ -1,5 +1,6 @@
 const { ProductTag } = require('../models');
 //a product can have many tags and a tag can have many products
+//associate each product with a tag and associate each tag with a product
 const productTagData = [
   {
     product_id: 1,
