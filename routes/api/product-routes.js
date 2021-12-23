@@ -64,6 +64,8 @@ router.post('/', (req, res) => {
             tag_id,
           };
         });
+        console.log("PRODUCT *****", productTagIdArr)
+
       //bulkCreate - create many tags using bulkCreate and assign to ProductTag
         return ProductTag.bulkCreate(productTagIdArr);
       }
@@ -72,13 +74,17 @@ router.post('/', (req, res) => {
     })
     .then((productTagIds) => res.status(200).json(productTagIds))
     .catch((err) => {
-      console.log(err);
-      console.log("PRODUCT ERROR ******", err)
       res.status(400).json(err);
     });
 });
 
-// update product, take all the tags from a product, remove old tags and replace with new ones user added
+// update product
+//first update the product and grab the product 
+//grab all the product tags from that specific product (based off id)
+//create an array of all its product tags
+//grab the new tag ids that user inputted
+//only filter product tag ids that are NOT inclded in old product tags
+//map to new array with specific product
 router.put('/:id', (req, res) => {
   // find specific product to update
   Product.update(req.body, {
@@ -106,7 +112,7 @@ router.put('/:id', (req, res) => {
             tag_id,
           };
         });
-      // figure out which ones to remove, get me all tags that I have and don't include ones that are not in database
+      // figure out which ones to remove, filter out only original tag ids and DONT include most recent ones user inputted
       const productTagsToRemove = productTags
         .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
         .map(({ id }) => id);
