@@ -21,3 +21,11 @@ The following demonstrate GET route functionality for Categories, Products, and 
 ![alt-text](./assets/products-get-route.JPG "products-get-route")
 
 ![alt-text](./assets/tags-get-route.JPG "tags-get-route")
+
+POST route functionality for Categories, Products, and Product Tags
+
+![alt-text](./assets/categories-post-route.JPG "categories-post-route")
+
+![alt-text](./assets/products-post-route.JPG "products-post-route")
+
+![alt-text](./assets/tags-post-route.JPG "tags-post-route")
