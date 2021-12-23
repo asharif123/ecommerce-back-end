@@ -11,3 +11,13 @@ categories, products, and product tags.
 The following video demos functionality on how to run the ecommerce-backend program.
 
 ![screen-recorder-wed-dec-22-2021-22-37-15](./assets/screen-recorder-wed-dec-22-2021-22-37-15.gif)
+
+# Screenshots
+
+The following demonstrate GET route functionality for Categories, Products, and Product Tags
+
+![alt-text](./assets/categories-get-route.JPG "categories-get-route")
+
+![alt-text](./assets/products-get-route.JPG "products-get-route")
+
+![alt-text](./assets/tags-get-route.JPG "tags-get-route")
