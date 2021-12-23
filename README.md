@@ -16,8 +16,8 @@ The following video demos functionality on how to run the ecommerce-backend prog
 
 The following demonstrate GET route functionality for Categories, Products, and Product Tags
 
-![alt-text](./assets/images/categories-get-route.JPG "categories-get-route")
+![alt-text](./assets/categories-get-route.JPG "categories-get-route")
 
-![alt-text](./assets/images/products-get-route.JPG "products-get-route")
+![alt-text](./assets/products-get-route.JPG "products-get-route")
 
-![alt-text](./assets/images/tags-get-route.JPG "tags-get-route")
+![alt-text](./assets/tags-get-route.JPG "tags-get-route")
