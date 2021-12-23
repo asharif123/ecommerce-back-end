@@ -58,13 +58,13 @@ router.post('/', (req, res) => {
       //for each of those tags, combine with product id
       if (req.body.tagIds.length) {
       //take each tag id and map it to the specific product
+      //create a list of objects having product_id and tag_id for each product_id
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
           return {
             product_id: product.id,
             tag_id,
           };
         });
-        console.log("PRODUCT *****", productTagIdArr)
 
       //bulkCreate - create many tags using bulkCreate and assign to ProductTag
         return ProductTag.bulkCreate(productTagIdArr);
@@ -72,6 +72,7 @@ router.post('/', (req, res) => {
       // if no product tags, just respond
       res.status(200).json(product);
     })
+    //return product with product tag ids
     .then((productTagIds) => res.status(200).json(productTagIds))
     .catch((err) => {
       res.status(400).json(err);
@@ -93,10 +94,11 @@ router.put('/:id', (req, res) => {
     },
   })
     .then((product) => {
-      // find all product tag from ProductTag according to its product id
+      // find all product tag from ProductTag according to its specific product id
       //note: product tags are associated with each product
       return ProductTag.findAll({ where: { product_id: req.params.id } });
     })
+    //getting the product tags
     .then((productTags) => {
       // get list of current tag_ids from specific product
       const productTagIds = productTags.map(({ tag_id }) => tag_id);
@@ -116,11 +118,12 @@ router.put('/:id', (req, res) => {
       const productTagsToRemove = productTags
         .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
         .map(({ id }) => id);
-
+      console.log("REMOVE ******************", productTagsToRemove)
       // run both actions
       return Promise.all([
-      //destroy items that are in list of tags to remove
+      //destroy items that are in list of tags to remove (remove all the old tags)
         ProductTag.destroy({ where: { id: productTagsToRemove } }),
+
       //add new tags that we are updating sent to me
         ProductTag.bulkCreate(newProductTags),
       ]);
