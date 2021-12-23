@@ -4,7 +4,7 @@ const sequelize = require('../config/connection');
 
 class ProductTag extends Model {}
 
-//used to define a many to many relationship
+//used to define a many to many relationship (a tag can have many products and a product can belong to many tags)
 //ProductTag references each product and individual tag
 //product tag: connection of product with specific tag
 ProductTag.init(
