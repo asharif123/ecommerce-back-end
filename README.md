@@ -21,3 +21,27 @@ The following demonstrate GET route functionality for Categories, Products, and 
 ![alt-text](./assets/products-get-route.JPG "products-get-route")
 
 ![alt-text](./assets/tags-get-route.JPG "tags-get-route")
+
+POST route functionality for Categories, Products, and Product Tags
+
+![alt-text](./assets/categories-post-route.JPG "categories-post-route")
+
+![alt-text](./assets/products-post-route.JPG "products-post-route")
+
+![alt-text](./assets/tags-post-route.JPG "tags-post-route")
+
+PUT route functionality for Categories, Products, and Product Tags
+
+![alt-text](./assets/categories-update-route.JPG "categories-update-route")
+
+![alt-text](./assets/products-update-route.JPG "products-update-route")
+
+![alt-text](./assets/tags-update-route.JPG "tags-update-route")
+
+DELETE functionality for Categories, Products, and Product Tags
+
+![alt-text](./assets/categories-delete-route.JPG "categories-delete-route")
+
+![alt-text](./assets/products-delete-route.JPG "products-delete-route")
+
+![alt-text](./assets/tags-delete-route.JPG "tags-delete-route")
