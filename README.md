@@ -9,3 +9,5 @@ categories, products, and product tags.
 # Demo of Project
 
 The following video demos functionality on how to run the ecommerce-backend program.
+
+![screen-recorder-wed-dec-22-2021-22-37-15](./assets/images/screen-recorder-wed-dec-22-2021-22-37-15.gif)
