@@ -37,3 +37,11 @@ PUT route functionality for Categories, Products, and Product Tags
 ![alt-text](./assets/products-update-route.JPG "products-update-route")
 
 ![alt-text](./assets/tags-update-route.JPG "tags-update-route")
+
+DELETE functionality for Categories, Products, and Product Tags
+
+![alt-text](./assets/categories-delete-route.JPG "categories-delete-route")
+
+![alt-text](./assets/products-delete-route.JPG "products-delete-route")
+
+![alt-text](./assets/tags-delete-route.JPG "tags-delete-route")
