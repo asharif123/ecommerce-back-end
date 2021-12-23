@@ -29,3 +29,11 @@ POST route functionality for Categories, Products, and Product Tags
 ![alt-text](./assets/products-post-route.JPG "products-post-route")
 
 ![alt-text](./assets/tags-post-route.JPG "tags-post-route")
+
+PUT route functionality for Categories, Products, and Product Tags
+
+![alt-text](./assets/categories-update-route.JPG "categories-update-route")
+
+![alt-text](./assets/products-update-route.JPG "products-update-route")
+
+![alt-text](./assets/tags-update-route.JPG "tags-update-route")
