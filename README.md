@@ -5,3 +5,7 @@ that are associated with each product tags.
 
 This program was created using Javascript, Sequelize to access the MySQL database, and Express.js to listen to different routes for posting/deleting/updating/fetching data for
 categories, products, and product tags.
+
+# Demo of Project
+
+The following video demos functionality on how to run the ecommerce-backend program.
